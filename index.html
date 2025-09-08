@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dodhia Group</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: white;
+      color: black;
+      text-align: center;
+    }
+    header {
+      padding: 2rem;
+      font-size: 2rem;
+      font-weight: bold;
+      color: darkred;
+    }
+    button {
+      background: darkred;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1.5rem;
+    }
+    button:hover {
+      background: black;
+    }
+    .section {
+      display: none;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .text {
+      padding: 2rem;
+      line-height: 1.6;
+      color: black;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .text h2 {
+      color: darkred;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Home Page -->
+  <div id="home" class="section" style="display:block;">
+    <header>Welcome to Dodhia Group</header>
+    <button onclick="showPlant()">See Our Plant</button>
+  </div>
+
+  <!-- Plant Section -->
+  <div id="plant" class="section">
+    <div class="video-container">
+      <iframe id="plantVideo"
+              src=""
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+      </iframe>
+    </div>
+    <div class="text">
+      <h2>WE ARE DODHIA GROUP</h2>
+      <p>
+        The Dodhia Group has been at the forefront of innovation and expansion, achieving meteoric growth over the past decade. 
+        The company is among the most prominent players in the textiles, chemicals, and plastic recycling industries in India with a global footprint.
+      </p>
+      <p>
+        With a focus on utilizing the latest technology for innovation and quality, Dodhia is committed to creating new possibilities 
+        that deliver delightful customer experiences and lead the way towards a more sustainable future.
+      </p>
+    </div>
+    <button onclick="goBack()">Back</button>
+  </div>
+
+  <script>
+    function showPlant() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("plant").style.display = "block";
+
+      // ✅ Embed YouTube video
+      let video = document.getElementById("plantVideo");
+      video.src = "https://www.youtube.com/embed/3C4hW5ekW74?autoplay=1&rel=0&modestbranding=1";
+    }
+
+    function goBack() {
+      // Stop YouTube video
+      let video = document.getElementById("plantVideo");
+      video.src = ""; // resets video playback
+
+      document.getElementById("plant").style.display = "none";
+      document.getElementById("home").style.display = "block";
+    }
+  </script>
+</body>
+</html>
